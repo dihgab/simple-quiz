@@ -18,3 +18,23 @@ body {
     transform: scale(1.02);
     transform: transform 100ms;
 }
+
+.choice-prefix{
+    padding: 2rem 2.5rem;
+    color: white;
+}
+
+.choice-text {
+    padding: 2rem;
+    width: 100%;
+}
+
+.correct {
+    background: linear-gradient(32deg, rgba(11, 223, 36) 0%, rgb(41, 232 111)100%);
+}
+
+@media screen and (max-width: 768px){
+    .choice-container{
+        min-width: 48rem;
+    }
+}
