@@ -12,6 +12,8 @@ let acceptingAnswes = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let holdingButton = false;
+
 
 let questions = []; 
 
@@ -128,38 +130,45 @@ getNewQuestions = () => {
 };
 
 choices.forEach(choice => {
-    choice.addEventListener('click', e => {
+    let holdingButton = false; // Variável para verificar se o botão está sendo mantido
+
+    choice.addEventListener('mousedown', e => {
         if (!acceptingAnswes) return;
 
-        acceptingAnswes = false;
-        const selectedChoice = e.target;
-        const selectedAnswer = selectedChoice.dataset['number'];
+        // Adicione a classe "holding" ao botão quando o mouse é pressionado
+        e.target.classList.add('holding');
+        holdingButton = true;
 
-        const classToApply =
-            selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
-
-        //Aumenta a pontuação se a resposta estiver correta:
-        if (classToApply === 'correct') {
-            incrementScore(CORRECT_BONUS);
-        }
-
-        //Add no class:
-        selectedChoice.parentElement.classList.add(classToApply);
-
+        // Defina um atraso para revelar a resposta
         setTimeout(() => {
-            //Remove essa class após o trabalho dele:
-            selectedChoice.parentElement.classList.remove(classToApply);
-            getNewQuestions();
-        }, 1000); //Quanto tempo para fazer o setTimeout principal
+            if (holdingButton) {
+                const selectedChoice = e.target;
+                const selectedAnswer = selectedChoice.dataset['number'];
 
-        //Ou usar:
-        /* const classToApply = 'incorrect';
-         if(selectedAnswer == currentQuestion.answer){
-             classToApply = 'correct'
-         }*/
+                const classToApply =
+                    selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
+                // Aumenta a pontuação se a resposta estiver correta
+                if (classToApply === 'correct') {
+                    incrementScore(CORRECT_BONUS);
+                }
 
+                selectedChoice.classList.add(classToApply);
 
+                setTimeout(() => {
+                    selectedChoice.classList.remove(classToApply);
+                    getNewQuestions();
+                }, 3000);
+            }
+        }, 3000);
+    });
+
+    choice.addEventListener('mouseup', e => {
+        if (!acceptingAnswes) return;
+
+        // Remove a classe "holding" quando o mouse é liberado
+        e.target.classList.remove('holding');
+        holdingButton = false;
     });
 });
 

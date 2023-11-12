@@ -24,7 +24,7 @@ h2 {
     margin-bottom: 4rem;
 }
 
-/*UTILITIES*/
+/*UTILIDADES*/
 .container {
     width: 100vw;
     height: 100vh;
@@ -68,27 +68,36 @@ h2 {
     color: rgb(28, 26, 26);
     background: linear-gradient(90deg, rgb(18, 92, 255) 0%, rgb(0, 10, 255) 100%);
     border-radius: 4px;
+    cursor: pointer;
+    /* Adiciona um cursor para indicar que é clicável */
+    transition: transform 150ms;
+    /* Adiciona uma transição para o efeito de clique */
 }
 
 .bnt:hover {
-    cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgb(0, 10, 255);
-    transition: transform 150ms;
-    transform: scale (1.03);
+    transform: scale(1.03);
+    background-color: #1e90ff;
+    /* Cor de fundo ao passar o mouse */
 }
 
 .bnt[disabled]:hover {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
+    background: linear-gradient(90deg, rgb(18, 92, 255) 0%, rgb(0, 10, 255) 100%);
 }
 
 #highscore-btn {
     background: linear-gradient(90deg, rgb(255, 247, 9) 0%, rgb(240, 221, 6) 100%);
+    cursor: pointer;
+    /* Adiciona um cursor para indicar que é clicável */
 }
 
 #highscore-btn:hover {
     box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 255, 0, 0.5);
+    background-color: #ffef06;
+    /* Cor de fundo ao passar o mouse */
 }
 
 .fa-crown {
