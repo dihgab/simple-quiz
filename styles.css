@@ -1,8 +1,16 @@
-.longPressuButton {
+#longPressButton {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#message {
+    text-align: center;
+    position: absolute;
+    bottom: 230px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 a {
@@ -35,10 +43,12 @@ a:after {
     transition: all .60s;
 }
 
-a:hover {
+#longPressButton.active a {
     color: #ffffff;
+    transition: all 3s; /* Ajuste a duração da transição para 1 segundo */
 }
 
-a:hover:after {
+#longPressButton.active a:after {
     width: 100%;
+    transition: all 3s; /* Ajuste a duração da transição para 1 segundo */
 }
