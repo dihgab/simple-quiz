@@ -1,0 +1,139 @@
+.choice-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 1.8rem;
+    border: 0.1rem solid rgba(0, 132, 247, 0.25);
+    background: linear-gradient(90deg, #1e90ff 0%, #1e90ff 0%); /* Adicione um gradiente de fundo */
+    background-size: 0% 100%; /* Inicialmente, o botão está vazio (0% preenchido) */
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: background-size 3s; /* Adicione uma transição para o preenchimento do botão */
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(156, 204, 255, 0.5);
+    transform: translateY(-0.8rem);
+}
+
+.choice-container:active {
+    cursor: pointer;
+    background-size: 100% 100%; /* Ao passar o mouse, o botão se enche da direita para a esquerda */
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(156, 204, 255, 0.5);
+    transform: translateY(-0.8rem);
+}
+
+.choice-prefix {
+    padding: 1.5rem 2.5rem;
+    background-color: #46596b;
+    color: #ffffff;
+}
+
+.choice-text {
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.correct {
+    background-color: #28a745;
+    transition: background-color 0.6s; /* Adiciona uma transição na cor de fundo */
+}
+
+.incorrect {
+    background-color: #dc3545;
+    transition: background-color 0.6s; /* Adiciona uma transição na cor de fundo */
+}
+
+.choice-container.holding {
+    background-size: 200% 100%;
+    cursor: pointer;
+    transition: background-position 0.6s; /* Adiciona uma transição no preenchimento */
+}
+
+#hud {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hud-prefix {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.hud-main-text {
+    text-align: center;
+}
+
+.image {
+    display: block;
+    margin: 0 auto;
+}
+
+.bnt {
+    font-size: 2.4rem;
+    padding: 2rem 0;
+    width: 30rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: rgb(28, 26, 26);
+    background: linear-gradient(90deg, rgb(18, 92, 255) 0%, rgb(0, 10, 255) 100%);
+    border-radius: 4px;
+    transition: all .60s; /* Adicione esta linha para a animação de transição */
+}
+
+.bnt:active {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(0, 10, 255);
+    transition: transform 150ms;
+    transform: scale(1.03);
+}
+
+.bnt[disabled]:active {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Adicionando a classe "active" para a animação de transição */
+.bnt.active {
+    background-color: #ffd700; /* Cor durante o botão pressionado */
+    cursor: pointer;
+}
+
+/*BARRINHA DE PROGRESSO*/
+#progressBar {
+    width: 20rem;
+    height: 4rem;
+    border: 0.3rem solid #ffffff;
+    margin-top: 1.6rem;
+
+}
+
+#progressBarFull {
+    height: 3.4rem;
+    background-color: #1e90ff;
+    width: 0%;
+}
+
+
+/*TELA DE CARREGAMENTO INICIAL*/
+#loader {
+    border: 1.6rem solid white;
+    border-radius: 50%;
+    border-top: 1.6rem solid #46596b;
+    width: 12rem;
+    height: 12rem;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
